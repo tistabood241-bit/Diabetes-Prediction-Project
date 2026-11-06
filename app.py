@@ -63,7 +63,7 @@ def load_files():
 try:
     model, scaler = load_files()
 except Exception as error:
-    st.error("Could not load the model or scaler. Please check that both files are in the repository.")
+    st.error(f"Model loading error: {error}")
     st.stop()
 
 # --------------------------------------------------
