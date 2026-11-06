@@ -2,7 +2,7 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
-import pickle
+import joblib
 from pathlib import Path
 from tensorflow.keras.models import load_model
 
@@ -55,8 +55,8 @@ BASE_DIR = Path(__file__).resolve().parent
 def load_files():
     model = load_model(BASE_DIR / "diabetes_model_final.keras")
 
-    with open(BASE_DIR / "diabetes_scaler_final.pkl", "rb") as file:
-        scaler = pickle.load(file)
+
+    scaler = joblib.load(BASE_DIR / "diabetes_scaler_final.pkl")
 
     return model, scaler
 
